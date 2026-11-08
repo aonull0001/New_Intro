@@ -1,0 +1,9 @@
+/* 色はすべてここで一元管理 */
+:root{
+  --bg:#FFFFFF; --bg-sub:#F5F5F5; --text:#222222; --muted:#777777; --line:#E8E8E8;
+  --route:#3F6F8A; --accent:#222222; --on-accent:#FFFFFF; --header-bg:rgba(255,255,255,.85);
+}
+[data-theme="dark"]{
+  --bg:#171717; --bg-sub:#222222; --text:#F5F5F5; --muted:#AAAAAA; --line:#333333;
+  --route:#6FC3DB; --accent:#F5F5F5; --on-accent:#171717; --header-bg:rgba(23,23,23,.85);
+}

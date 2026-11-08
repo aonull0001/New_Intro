@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ja" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>無の部屋。 | Aonull's Personal Space</title>
+<meta name="description" content="Aonullの活動・制作物・趣味を紹介するパーソナルサイト。（説明文は js/data.js で編集できます）">
+<meta name="color-scheme" content="light dark">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="無の部屋。">
+<meta property="og:title" content="無の部屋。 | Aonull's Personal Space">
+<meta property="og:description" content="Aonullの活動・制作物・趣味を紹介するパーソナルサイト。">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary">
+<!-- OGP画像: assets/images/ogp.png を用意したら下の行のコメントを外し、公開URLを絶対パスで指定 -->
+<!-- <meta property="og:image" content="https://USERNAME.github.io/REPO/assets/images/ogp.png"> -->
+<link rel="icon" href="assets/favicon/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="css/themes.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/responsive.css">
+<script>
+/* 初回描画前にテーマを確定（ちらつき防止） */
+(function(){try{var t=localStorage.getItem('theme');if(t!=='light'&&t!=='dark'){t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}
+document.documentElement.dataset.theme=t;document.documentElement.classList.add('js');
+var l=localStorage.getItem('lang');if(l==='en')document.documentElement.lang='en'}catch(e){document.documentElement.classList.add('js')}})();
+</script>
+</head>
+<body>
+<a class="skip" href="#main" data-i18n="ui.skip">本文へスキップ</a>
+
+<header class="header" id="header">
+  <div class="header__in">
+    <a class="logo" href="#top">無の部屋。</a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav" aria-label="Menu"><span></span><span></span></button>
+    <nav class="nav" id="nav" aria-label="Main">
+      <ul>
+        <li><a href="#about" data-i18n="nav.about">自己紹介</a></li>
+        <li><a href="#works" data-i18n="nav.works">制作物</a></li>
+        <li><a href="#interests" data-i18n="nav.interests">好きなもの</a></li>
+        <li><a href="#skills" data-i18n="nav.skills">スキル</a></li>
+        <li><a href="#history" data-i18n="nav.history">これまで</a></li>
+        <li><a href="#activity" data-i18n="nav.activity">活動記録</a></li>
+        <li><a href="#links" data-i18n="nav.links">リンク</a></li>
+        <li><a href="#contact" data-i18n="nav.contact">連絡先</a></li>
+      </ul>
+      <div class="tools">
+        <button class="tool" id="langBtn" type="button" aria-label="Language"><span data-l="ja">JP</span> / <span data-l="en">EN</span></button>
+        <button class="tool" id="themeBtn" type="button" aria-label="Theme"><span class="theme-ico" aria-hidden="true"></span><span id="themeLabel"></span></button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="top" aria-labelledby="heroTitle">
+    <div class="wrap">
+      <h1 id="heroTitle">無の部屋。</h1>
+      <p class="hero__en">Aonull's Personal Space.</p>
+      <p class="hero__lead" data-i18n="hero.lead">ここに短い紹介文が入ります。（js/data.js で編集）</p>
+    </div>
+    <a class="scroll" href="#about" aria-label="Scroll"><span data-i18n="ui.scroll">Scroll</span><i></i></a>
+  </section>
+
+  <section class="section" id="about" aria-labelledby="about-h"><div class="wrap">
+    <h2 id="about-h" class="reveal" data-i18n="nav.about">自己紹介</h2>
+    <div class="about reveal">
+      <div class="avatar" id="avatar"></div>
+      <dl class="profile" id="profile"></dl>
+    </div>
+  </div></section>
+
+  <section class="section alt" id="works" aria-labelledby="works-h"><div class="wrap">
+    <h2 id="works-h" class="reveal" data-i18n="nav.works">制作物</h2>
+    <ol class="works" id="worksList"></ol>
+  </div></section>
+
+  <section class="section" id="interests" aria-labelledby="interests-h"><div class="wrap">
+    <h2 id="interests-h" class="reveal" data-i18n="nav.interests">好きなもの</h2>
+    <div class="int-grid" id="interestsList"></div>
+  </div></section>
+
+  <section class="section alt" id="skills" aria-labelledby="skills-h"><div class="wrap">
+    <h2 id="skills-h" class="reveal" data-i18n="nav.skills">スキル</h2>
+    <div class="skills" id="skillsList"></div>
+  </div></section>
+
+  <section class="section" id="history" aria-labelledby="history-h"><div class="wrap">
+    <h2 id="history-h" class="reveal" data-i18n="nav.history">これまで</h2>
+    <div class="route" id="route">
+      <div class="route__line" aria-hidden="true"><div class="route__fill"></div></div>
+      <ol id="historyList"></ol>
+    </div>
+  </div></section>
+
+  <section class="section alt" id="activity" aria-labelledby="activity-h"><div class="wrap">
+    <h2 id="activity-h" class="reveal" data-i18n="nav.activity">活動記録</h2>
+    <ol class="timeline" id="activityList"></ol>
+  </div></section>
+
+  <section class="section" id="links" aria-labelledby="links-h"><div class="wrap">
+    <h2 id="links-h" class="reveal" data-i18n="nav.links">リンク</h2>
+    <ul class="links" id="linksList"></ul>
+  </div></section>
+
+  <section class="section alt" id="contact" aria-labelledby="contact-h"><div class="wrap">
+    <h2 id="contact-h" class="reveal" data-i18n="nav.contact">連絡先</h2>
+    <p class="reveal" data-i18n="contact.lead">お問い合わせはメールでお願いします。</p>
+    <p class="reveal mail"><a id="mailLink" href="#contact" class="mail__a"></a></p>
+  </div></section>
+</main>
+
+<footer class="footer"><div class="wrap footer__in">
+  <div><strong>無の部屋。</strong><br><span class="muted">Aonull</span></div>
+  <p class="muted small">Copyright © <span id="year">2026</span> Aonull. All Rights Reserved.</p>
+  <a href="#top" class="footer__top" data-i18n="ui.top">ページトップへ</a>
+</div></footer>
+
+<a href="#top" class="to-top" id="toTop" aria-label="Top" hidden>↑</a>
+<noscript><p class="noscript">JavaScriptを有効にすると、すべての内容が表示されます。 / Please enable JavaScript to see all content.</p></noscript>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

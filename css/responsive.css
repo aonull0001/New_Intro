@@ -1,0 +1,27 @@
+@media (max-width:1199px){
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .links{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:991px){
+  .menu-btn{display:flex;flex-direction:column;justify-content:center;gap:6px;width:44px;height:44px;padding:0 10px;border:0;background:transparent;cursor:pointer}
+  .menu-btn span{display:block;height:1.5px;background:var(--text);transition:transform .25s}
+  .menu-btn[aria-expanded="true"] span:first-child{transform:translateY(3.75px) rotate(45deg)}
+  .menu-btn[aria-expanded="true"] span:last-child{transform:translateY(-3.75px) rotate(-45deg)}
+  .nav{position:fixed;top:64px;left:0;right:0;bottom:0;background:var(--bg);flex-direction:column;align-items:stretch;justify-content:flex-start;gap:24px;padding:16px clamp(20px,5vw,40px) 40px;overflow-y:auto;visibility:hidden;opacity:0;transition:opacity .25s,visibility .25s}
+  .nav.open{visibility:visible;opacity:1}
+  .nav ul{flex-direction:column;gap:0}
+  .nav ul a{font-size:1.125rem;padding:.9em 0;border-bottom:1px solid var(--line);color:var(--text)}
+  .nav ul a::after{display:none}
+  .nav ul a.is-active{font-weight:700}
+  .tools{width:100%}
+  .tools .tool{min-height:44px;flex:1;justify-content:center}
+}
+@media (max-width:767px){
+  .work{grid-template-columns:2.5rem 1fr;gap:8px}
+  .station{padding-left:48px}.route .empty{margin-left:48px}
+  .about{grid-template-columns:1fr}.avatar{width:128px}
+  .profile>div,.skill{grid-template-columns:1fr;gap:4px}
+  .grid,.links,.skills{grid-template-columns:1fr}
+  .hero{padding-top:88px}
+  .footer__in{flex-direction:column;align-items:flex-start}
+}
