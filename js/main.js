@@ -10,9 +10,15 @@
     set: function (k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
   };
   var lang = store.get("lang") === "en" ? "en" : "ja";
-  var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var reduce = window.matchMedia ? window.matchMedia("(prefers-reduced-motion: reduce)").matches : false;
 
   /* ---------- helpers ---------- */
+  function onMediaChange(query, callback) {
+    if (!window.matchMedia) return;
+    var media = window.matchMedia(query);
+    if (media.addEventListener) media.addEventListener("change", callback);
+    else if (media.addListener) media.addListener(callback);
+  }
   function t(key) { return (D.ui[lang] && D.ui[lang][key]) || key; }
   function pick(o) { return o && typeof o === "object" ? (o[lang] || "") : (o || ""); }
   function el(tag, cls, text) {
@@ -202,7 +208,7 @@
   menuBtn.addEventListener("click", function () { setMenu(!nav.classList.contains("open")); });
   nav.querySelectorAll("ul a").forEach(function (a) { a.addEventListener("click", function () { setMenu(false); }); });
   document.addEventListener("keydown", function (e) { if (e.key === "Escape" && nav.classList.contains("open")) { setMenu(false); menuBtn.focus(); } });
-  matchMedia("(min-width: 992px)").addEventListener("change", function (m) { if (m.matches) setMenu(false); });
+  onMediaChange("(min-width: 992px)", function (m) { if (m.matches) setMenu(false); });
 
   /* ---------- scroll effects (IntersectionObserver only) ---------- */
   var revealIO = null;
