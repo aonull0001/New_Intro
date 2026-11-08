@@ -832,7 +832,7 @@ window.SITE_DATA = {
         {
             name: "YouTube",
             account: "@Aonull000",
-            url: "",
+            url: "https://www.youtube.com/@Aonull000",
             icon: "",
 
             desc: {
@@ -845,20 +845,7 @@ window.SITE_DATA = {
         {
             name: "X",
             account: "@aonull_",
-            url: "",
-            icon: "",
-
-            desc: {
-                ja: "",
-                en: ""
-            }
-        },
-
-
-        {
-            name: "GitHub",
-            account: "",
-            url: "",
+            url: "https://x.com/aonull_",
             icon: "",
 
             desc: {
