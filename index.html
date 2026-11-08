@@ -23,9 +23,9 @@
 <link rel="stylesheet" href="css/responsive.css">
 <script>
 /* 初回描画前にテーマを確定（ちらつき防止） */
-(function(){try{var t=localStorage.getItem('theme');if(t!=='light'&&t!=='dark'){t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}
-document.documentElement.dataset.theme=t;document.documentElement.classList.add('js');
-var l=localStorage.getItem('lang');if(l==='en')document.documentElement.lang='en'}catch(e){document.documentElement.classList.add('js')}})();
+(function(){var t=null,l=null;try{t=localStorage.getItem('theme');l=localStorage.getItem('lang')}catch(e){}
+if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}
+document.documentElement.dataset.theme=t;if(l==='en')document.documentElement.lang='en'})();
 </script>
 </head>
 <body>

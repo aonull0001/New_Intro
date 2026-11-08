@@ -273,7 +273,7 @@ window.SITE_DATA = {
 
             items: [
                 {
-                    ja: "シンデレラ・マジック / 紫咲シオン"",
+                    ja: "シンデレラ・マジック / 紫咲シオン",
                     en: "シンデレラ・マジック / Murasaki Shion"
                 }
             ]

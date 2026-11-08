@@ -256,4 +256,6 @@
   renderAll();
   setupScrollSpy();
   setupRoute();
+  root.classList.add("js");
+  observeReveal();
 })();
